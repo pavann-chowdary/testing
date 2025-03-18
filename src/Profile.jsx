@@ -62,7 +62,7 @@ const Orderpage = () => {
     };
 
     const HandleOrder=()=>{
-      // navigate("/confirm",{state:{selectedItems,email}});
+      navigate("/confirm",{state:{selectedItems,email}});
     }
 
     const filterData=data.filter((dat)=>

@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Profile from "./Profile"
+import OrderConfirmationpage from "./OrderConfirmationpage";
 
 export default function AppRoutes () {
   return (
@@ -12,7 +13,7 @@ export default function AppRoutes () {
           <Profile/>
         }
       />
-      {/* <Route path="/confirm" element={<OrderConfirmationpage />} /> */}
+      <Route path="/confirm" element={<OrderConfirmationpage />} />
     </Routes>
   );
 };
