@@ -1,7 +1,7 @@
 
-import connectToDatabase from './db.js';
+import connectToDatabase from '../db.js';
 import express from 'express';
-import Order from './model.js';
+import Order from '../models/order.js';
 const router = express.Router();
 
 
