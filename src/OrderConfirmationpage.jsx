@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import axios from 'axios'
+import { useAuth } from './AuthContext';
 
 
 const OrderConfirmationpage = () => {
@@ -10,10 +11,11 @@ const OrderConfirmationpage = () => {
   const location = useLocation();
   const {selectedItems,email} = location.state;
   const totalPrice = selectedItems.reduce((acc, curr) => acc + curr.price, 0);
+  const { logout } = useAuth();
   
   const HandleSignout = () => {
-    // localStorage.removeItem('googleToken');
-      window.location.href = '/';
+    logout();
+    window.location.href = '/';
   };
 
   const HandlePlaceOrder= async() => {

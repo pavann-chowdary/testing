@@ -12,7 +12,7 @@ import { useState } from 'react'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 import { useLocation } from 'react-router-dom'
-
+import { useAuth } from './AuthContext';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -28,19 +28,20 @@ const Orderpage = () => {
 
     const location = useLocation();
     const { given_name, email } = location.state || {}; //if location.state is undefined, it becomes an empty object.
-    if(given_name && email)
-    {
-      console.log(given_name, email);
-    } 
-    else {
-      console.log("State was not properly set");
-    }
+    // if(given_name && email)
+    // {
+    //   console.log(given_name, email);
+    // } 
+    // else {
+    //   console.log("State was not properly set");
+    // }
     const navigate=useNavigate();
     const [quantities, setQuantities] = useState({});
     const [search,setSearch]=useState("");
+    const { logout } = useAuth();
     const HandleSignout=()=>{
       
-      // localStorage.removeItem('googleToken');
+      logout();
       window.location.href = '/';
       //navigate("/");
     }

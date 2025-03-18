@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Profile from "./Profile"
+import Order from "./Order"
 import OrderConfirmationpage from "./OrderConfirmationpage";
 
 export default function AppRoutes () {
@@ -10,7 +10,7 @@ export default function AppRoutes () {
       <Route
         path="/welcome"
         element={
-          <Profile/>
+          <Order/>
         }
       />
       <Route path="/confirm" element={<OrderConfirmationpage />} />

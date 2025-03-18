@@ -7,17 +7,20 @@ import axios from 'axios'
 import { Routes,Route } from 'react-router-dom'
 import {useNavigate} from 'react-router-dom'
 import AppRoutes from './routes'
+import { useAuth } from './AuthContext';
 
 function App() { 
-  console.log(window.location.origin)
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // console.log(window.location.origin)
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate(); 
+  const { login, isLoggedIn, logout } = useAuth();
   
   const handleGoogleLoginSuccess = async (credentialResponse) => {
     console.error('Google login Successful');
     const decoded = jwtDecode(credentialResponse.credential);
     try {
-      setIsLoggedIn(true);
+      login(credentialResponse.credential);
+      // setIsLoggedIn(true);
       
       
       const response = await axios.post('/users', {
