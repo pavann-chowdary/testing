@@ -24,9 +24,9 @@ function App() {
           name: decoded.name,
           email: decoded.email,
       });
-      const name=decoded.name
+      const given_name=decoded.name
       const email=decoded.email
-      navigate('/welcome',{state:{name,email}})
+      navigate('/welcome',{state:{given_name,email}})
       console.log('User data saved to MongoDB', response.data);
   } catch (error) {
       console.error('Failed to save user data', error);
