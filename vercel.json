@@ -29,10 +29,12 @@
       {
         "src": "/orders/(.*)",
         "dest": "api/index.js"
-      },
+      }
+    ],
+    "rewrites": [
       {
-        "src": "/(.*)",
-        "dest": "/index.html"
+        "source": "/(.*)",
+        "destination": "/index.html"
       }
     ]
   }
