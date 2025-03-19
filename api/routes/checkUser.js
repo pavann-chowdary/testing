@@ -5,20 +5,23 @@ import User from '../models/user.js';
 const router = express.Router();
 router.post('/', async (req, res) => {
     try {
-      await connectToDatabase();
-      const { email } = req.body;
-      const query = User.findOne({ email });
-      console.log('Query object:', query); // This will be the Query object
+        await connectToDatabase();
+        const { email } = req.body;
+        const user = await User.findOne({ email });
+        res.send(!!user)
 
-      const user = await query; // Await the query to get the result
-      console.log('User (awaited result):', user);
-      if(user){
-        console.log('found user with email ',{email})
-        res.json({ exists: true });
-      }
-      else{
-        res.json({ exists: false });
-      }
+        
+    //   console.log('Query object:', query); // This will be the Query object
+
+         // Await the query to get the result
+    //   console.log('User (awaited result):', user);
+        // if(user){
+        // // console.log('found user with email ',{email})
+        // res.json({ exists: true });
+        // }
+        // else{
+        // res.json({ exists: false });
+        // }
     }
     catch (error) {
         console.error('Error checking email:', error);

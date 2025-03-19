@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Order from "./Order"
 import OrderConfirmationpage from "./OrderConfirmationpage";
+import Request from "./Request";
 
 export default function AppRoutes () {
   return (
@@ -14,6 +15,7 @@ export default function AppRoutes () {
         }
       />
       <Route path="/confirm" element={<OrderConfirmationpage />} />
+      <Route path="/request" element={<Request/>}/>
     </Routes>
   );
 };
