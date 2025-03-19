@@ -7,7 +7,7 @@ const Kitchen = () => {
     const location = useLocation();
     const { given_name, email } = location.state || {};
     const handleGetOrder = async () => {
-        const response = await axios.get('/getOrders?email=${checkEmail}')
+        const response = await axios.get(`/getOrders?email=${checkEmail}`) // use `` not ''
         console.log(response.data)
     }
   return (
