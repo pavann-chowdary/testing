@@ -18,7 +18,7 @@ const Kitchen = () => {
         <input type='text' placeholder='enter the email to find the orders' onChange={(e)=>setCheckEmail(e.target.value)}></input>
         <button onClick={handleGetOrder}>Get orders by email</button>
         <ArrowDatePicker value={dateA} onChange={setDateA} />
-        <h5>dateA</h5>
+        <h5>{dateA}</h5>
     </div>
   )
 }
