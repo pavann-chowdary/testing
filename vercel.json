@@ -31,6 +31,14 @@
         "destination": "api/index.js"
       },
       {
+        "source": "/checkUsers",
+        "destination": "/api/index.js"
+      },
+      {
+        "source": "/checkUsers/(.*)",
+        "destination": "api/index.js"
+      },
+      {
         "source": "/(.*)",
         "destination": "/index.html"
       }
