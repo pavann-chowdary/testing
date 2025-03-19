@@ -11,9 +11,8 @@ router.get('/', async (req, res) => {
         const order = await Order.find({ email:email });
         // console.log({user})
         if(order.length>0){
-        const orderObj=order.toJSON();
-        console.log({orderObj})
-        res.json({ order:orderObj })}
+        console.log({order})
+        res.json({ order:order })}
         else{
             console.log("couldnt find email")
             res.json({order:null})
