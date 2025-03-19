@@ -6,20 +6,20 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     try {
         await connectToDatabase();
-        const { email } = req.query;
-        console.log({email})
-        const order = await Order.find({ email:email });
+        const { date } = req.query;
+        console.log({date})
+        const order = await Order.find({ date:date });
         // console.log({user})
         if(order.length>0){
         console.log({order})
         res.json({ order:order })}
         else{
-            console.log("couldnt find email")
+            console.log("no orders for given date", {date})
             res.json({order:null})
         }
     }
     catch(error){
-        console.error('Error checking email:', error);
+        console.error('Error checking orders on dat:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 })

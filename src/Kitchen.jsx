@@ -9,16 +9,16 @@ const Kitchen = () => {
     const location = useLocation();
     const { given_name, email } = location.state || {};
     const handleGetOrder = async () => {
-        const response = await axios.get(`/getOrders?email=${checkEmail}`) // use `` not ''
+        const date=dateA.toDateString()
+        const response = await axios.get(`/getOrders?date=${date}`) // use `` not ''
         console.log(response.data)
     }
   return (
     <div>
         <h1>this is kitchen page {given_name} {email}</h1>
-        <input type='text' placeholder='enter the email to find the orders' onChange={(e)=>setCheckEmail(e.target.value)}></input>
-        <button onClick={handleGetOrder}>Get orders by email</button>
+        {/* <input type='text' placeholder='enter the email to find the orders' onChange={(e)=>setCheckEmail(e.target.value)}></input> */}
         <ArrowDatePicker value={dateA} onChange={setDateA} />
-        <h5>{dateA.toDateString()}</h5>
+        <button onClick={handleGetOrder}>Get orders</button>
     </div>
   )
 }
