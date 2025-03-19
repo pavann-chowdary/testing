@@ -8,6 +8,7 @@ router.post('/', async (req, res) => {
       await connectToDatabase();
       const { email } = req.body;
       const user = User.findOne({email});
+      console.log({user})
       if(user){
         console.log('found user with email ',{email})
         res.json({ exists: true });
