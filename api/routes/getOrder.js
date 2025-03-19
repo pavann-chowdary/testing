@@ -9,25 +9,8 @@ router.get('/', async (req, res) => {
         const { date } = req.query;
 
 
-        if (!date) {
-            return res.status(400).json({ error: 'Date parameter is required' });
-        }
-
-        const parsedDate = new Date(date);
-
-        if (isNaN(parsedDate.getTime())) {
-            return res.status(400).json({ error: 'Invalid date format' });
-        }
-
-        const startOfDayUTC = new Date(Date.UTC(parsedDate.getFullYear(), parsedDate.getMonth(), parsedDate.getDate(), 0, 0, 0));
-        const endOfDayUTC = new Date(Date.UTC(parsedDate.getFullYear(), parsedDate.getMonth(), parsedDate.getDate(), 23, 59, 59));
-
-        const order = await Order.find({
-            date: {
-                $gte: startOfDayUTC,
-                $lte: endOfDayUTC,
-            },
-        });
+        console.log({date})
+        const order = await Order.find({ date:date });
 
         
         // console.log({user})
@@ -35,7 +18,7 @@ router.get('/', async (req, res) => {
         console.log({order})
         res.json({ order:order })}
         else{
-            console.log("no orders for given date", {parsedDate})
+            console.log("no orders for given date", {date})
             res.json({order:null})
         }
     }
