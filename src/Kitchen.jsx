@@ -4,6 +4,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import ArrowDatePicker from './ArrowDatePicker';
 const Kitchen = () => {
+    const [dateA, setDateA] = useState(new Date());
     const [checkEmail, setCheckEmail] = useState('');
     const location = useLocation();
     const { given_name, email } = location.state || {};
@@ -16,7 +17,8 @@ const Kitchen = () => {
         <h1>this is kitchen page {given_name} {email}</h1>
         <input type='text' placeholder='enter the email to find the orders' onChange={(e)=>setCheckEmail(e.target.value)}></input>
         <button onClick={handleGetOrder}>Get orders by email</button>
-        <ArrowDatePicker/>
+        <ArrowDatePicker value={dateA} onChange={setDateA} />
+        <h5>dateA</h5>
     </div>
   )
 }
