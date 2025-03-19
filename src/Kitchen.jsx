@@ -6,7 +6,8 @@ const Kitchen = () => {
     const location = useLocation();
     const { given_name, email } = location.state || {};
     const handleGetOrder = async () => {
-        console.log({checkEmail})
+        const response = await axios.get('/getOrders?email=${checkEmail}')
+        console.log(response.data)
     }
   return (
     <div>
