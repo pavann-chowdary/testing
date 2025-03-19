@@ -44,7 +44,7 @@ function App() {
           navigate('/admin',{state:{given_name,email}})
         }
       }
-      if(!response.data){
+      if(!response.data.exists){
         navigate('/request',{state:{given_name,email}})
         console.log('doesnt exist')
       }
