@@ -9,6 +9,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/users', usersRouter); // Mount the user routes
-app.use('/orders', orderRouter);
+app.use('/api/users', usersRouter); // Mount the user routes
+app.use('/api/orders', orderRouter);
 export default app;

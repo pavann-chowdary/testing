@@ -23,14 +23,14 @@ function App() {
       // setIsLoggedIn(true);
       
       
-      const response = await axios.post('/users', {
+      const response = await axios.post('/api/users', {
           name: decoded.name,
           email: decoded.email,
       });
       const given_name=decoded.name
       const email=decoded.email
       navigate('/welcome',{state:{given_name,email}})
-      console.log('Navigated to profile')
+      // console.log('Navigated to profile')
       console.log('User data saved to MongoDB', response.data);
   } catch (error) {
       console.error('Failed to save user data', error);
