@@ -39,6 +39,14 @@
         "destination": "api/index.js"
       },
       {
+        "source": "/getOrders",
+        "destination": "/api/index.js"
+      },
+      {
+        "source": "/getOrders/(.*)",
+        "destination": "api/index.js"
+      },
+      {
         "source": "/(.*)",
         "destination": "/index.html"
       }
