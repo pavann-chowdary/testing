@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
         console.log({order})
         res.json({ order:order })}
         else{
-            console.log("no orders for given date", {date})
+            console.log("no orders for given date", {parsedDate})
             res.json({order:null})
         }
     }
