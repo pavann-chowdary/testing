@@ -31,7 +31,8 @@ function App() {
           email: email,
       });
       if(response.data.exists){
-        console.log('emailExists')
+        const data=response.data
+        console.log({data})
         navigate('/welcome',{state:{given_name,email}})
       }
       if(!response.data.exists){

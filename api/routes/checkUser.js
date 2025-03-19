@@ -9,6 +9,7 @@ router.post('/', async (req, res) => {
       const { email } = req.body;
       const user = User.findOne({email});
       if(user){
+        console.log('found user with email ',{email})
         res.json({ exists: true });
       }
       else{
