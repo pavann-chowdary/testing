@@ -15,20 +15,20 @@
     ],
     "rewrites": [
       {
-        "src": "/users",
-        "dest": "/api/index.js"
+        "source": "/users",
+        "destination": "/api/index.js"
       },
       {
-        "src": "/users/(.*)",
-        "dest": "api/index.js"
+        "source": "/users/(.*)",
+        "destination": "api/index.js"
       },
       {
-        "src": "/orders",
-        "dest": "/api/index.js"
+        "source": "/orders",
+        "destination": "/api/index.js"
       },
       {
-        "src": "/orders/(.*)",
-        "dest": "api/index.js"
+        "source": "/orders/(.*)",
+        "destination": "api/index.js"
       },
       {
         "source": "/(.*)",
