@@ -33,9 +33,16 @@ function App() {
       if(response.data.exists){
         // const data=response.data
         // console.log({data})
-        const id= response.data._id
-        console.log(id)
-        navigate('/welcome',{state:{given_name,email}})
+        const role= response.data.role
+        if(role=='bakery'){
+          navigate('/welcome',{state:{given_name,email}})
+        }
+        else if(role=='kitchen'){
+          navigate('/kitchen',{state:{given_name,email}})
+        }
+        else if(role == 'admin'){
+          navigate('/admin',{state:{given_name,email}})
+        }
       }
       if(!response.data){
         navigate('/request',{state:{given_name,email}})
