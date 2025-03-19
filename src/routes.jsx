@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Admin from "./admin";
-import Kitchen from "./kitchen";
+import Admin from "./Admin";
+import Kitchen from "./Kitchen";
 import Order from "./Order"
 import OrderConfirmationpage from "./OrderConfirmationpage";
 import Request from "./Request";
