@@ -13,7 +13,7 @@
         "use": "@vercel/node"
       }
     ],
-    "routes": [
+    "rewrites": [
       {
         "src": "/users",
         "dest": "/api/index.js"
@@ -29,9 +29,7 @@
       {
         "src": "/orders/(.*)",
         "dest": "api/index.js"
-      }
-    ],
-    "rewrites": [
+      },
       {
         "source": "/(.*)",
         "destination": "/index.html"
