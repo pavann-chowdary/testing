@@ -8,10 +8,15 @@ router.post('/', async (req, res) => {
         await connectToDatabase();
         const { email } = req.body;
         const user = await User.findOne({ email });
-        console.log({user})
+        // console.log({user})
+        if(user){
         const userObj=user.toJSON();
         console.log({userObj})
-        res.json({ exists: true, role: userObj.role })
+        res.json({ exists: true, role: userObj.role })}
+        else{
+            console.log("couldnt find email")
+            res.json({exists: false, role: null})
+        }
         
 
         
