@@ -7,8 +7,29 @@ router.get('/', async (req, res) => {
     try {
         await connectToDatabase();
         const { date } = req.query;
-        console.log({date})
-        const order = await Order.find({ date:date });
+
+
+        if (!date) {
+            return res.status(400).json({ error: 'Date parameter is required' });
+        }
+
+        const parsedDate = new Date(date);
+
+        if (isNaN(parsedDate.getTime())) {
+            return res.status(400).json({ error: 'Invalid date format' });
+        }
+
+        const startOfDayUTC = new Date(Date.UTC(parsedDate.getFullYear(), parsedDate.getMonth(), parsedDate.getDate(), 0, 0, 0));
+        const endOfDayUTC = new Date(Date.UTC(parsedDate.getFullYear(), parsedDate.getMonth(), parsedDate.getDate(), 23, 59, 59));
+
+        const order = await Order.find({
+            date: {
+                $gte: startOfDayUTC,
+                $lte: endOfDayUTC,
+            },
+        });
+
+        
         // console.log({user})
         if(order.length>0){
         console.log({order})
