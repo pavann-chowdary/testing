@@ -7,6 +7,7 @@ router.get('/', async (req, res) => {
     try {
         await connectToDatabase();
         const { email } = req.query;
+        console.log({email})
         const order = await Order.find({ email:email });
         // console.log({user})
         if(order.length>0){
