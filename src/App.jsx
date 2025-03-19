@@ -31,16 +31,16 @@ function App() {
           email: email,
       });
       if(response.data.exists){
-        // const data=response.data
-        // console.log({data})
+        const data=response.data
+        console.log({data})
         const role= response.data.role
-        if(role=='bakery'){
+        if(role === 'bakery'){
           navigate('/welcome',{state:{given_name,email}})
         }
-        else if(role=='kitchen'){
+        else if(role === 'kitchen'){
           navigate('/kitchen',{state:{given_name,email}})
         }
-        else if(role == 'admin'){
+        else if(role === 'admin'){
           navigate('/admin',{state:{given_name,email}})
         }
       }
