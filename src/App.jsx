@@ -23,7 +23,7 @@ function App() {
       // setIsLoggedIn(true);
       
       
-      const response = await axios.post('/api/users', {
+      const response = await axios.post('/users', {
           name: decoded.name,
           email: decoded.email,
       });

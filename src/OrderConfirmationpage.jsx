@@ -33,7 +33,7 @@ const OrderConfirmationpage = () => {
           orderDate: orderDate,
           orderTime:orderTime,
       }
-      const response = await axios.post("/api/orders", orderData);
+      const response = await axios.post("/orders", orderData);
       console.log("Order placed successfully:", response.data);
       alert("Order placed successfully!");
     }
