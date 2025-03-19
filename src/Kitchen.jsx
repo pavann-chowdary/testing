@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import axios from 'axios';
 const Kitchen = () => {
     const [checkEmail, setCheckEmail] = useState('');
     const location = useLocation();
