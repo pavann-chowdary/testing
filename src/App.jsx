@@ -30,9 +30,11 @@ function App() {
       const response = await axios.post('/checkUsers', {
           email: email,
       });
-      if(response.data){
+      if(response.data.exists){
         // const data=response.data
         // console.log({data})
+        const id= response.data._id
+        console.log(id)
         navigate('/welcome',{state:{given_name,email}})
       }
       if(!response.data){

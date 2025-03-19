@@ -8,7 +8,7 @@ router.post('/', async (req, res) => {
         await connectToDatabase();
         const { email } = req.body;
         const user = await User.findOne({ email });
-        res.send(!!user)
+        res.json({ exists: true, _id: user._id })
 
         
     //   console.log('Query object:', query); // This will be the Query object
