@@ -36,8 +36,8 @@ function App() {
         navigate('/welcome',{state:{given_name,email}})
       }
       if(!response.data){
-        navigate('/request')
-        console.log('doesnt exist',{state:{given_name,email}})
+        navigate('/request',{state:{given_name,email}})
+        console.log('doesnt exist')
       }
        
     } 
