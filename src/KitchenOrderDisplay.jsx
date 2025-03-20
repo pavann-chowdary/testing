@@ -2,7 +2,8 @@ import React from 'react';
 
 function OrdersDisplay({ orders }) {
   const groupedOrders = groupOrdersByEmail(orders);
-
+  console.log("hi from kitchen display")
+  console.log({orders})
   return (
     <div>
       <h2>Orders by Email</h2>
