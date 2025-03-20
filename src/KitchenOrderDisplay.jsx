@@ -1,6 +1,6 @@
 import React from 'react';
 
-function OrdersDisplay({ orders }) {
+function KitchenOrdersDisplay({ orders }) {
   const groupedOrders = groupOrdersByEmail(orders);
   console.log("hi from kitchen display")
   console.log({orders})
@@ -36,4 +36,4 @@ function groupOrdersByEmail(orders) {
   return groupedOrders;
 }
 
-export default OrdersDisplay;
+export default KitchenOrdersDisplay;
