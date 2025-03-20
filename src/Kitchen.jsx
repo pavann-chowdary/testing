@@ -14,13 +14,13 @@ const Kitchen = () => {
     };
 
     const [dateA, setDateA] = useState(new Date());
-    const [checkEmail, setCheckEmail] = useState('');
+    const [orders, setOrders] = useState('');
     const location = useLocation();
     const { given_name, email } = location.state || {};
     const handleGetOrder = async () => {
         const date=formatDate(dateA)
         const response = await axios.get(`/getOrders?date=${date}`) // use `` not ''
-        console.log(response.data)
+        setOrders(response.data)
     }
   return (
     <div>
@@ -28,7 +28,7 @@ const Kitchen = () => {
         {/* <input type='text' placeholder='enter the email to find the orders' onChange={(e)=>setCheckEmail(e.target.value)}></input> */}
         <ArrowDatePicker value={dateA} onChange={setDateA} />
         <button onClick={handleGetOrder}>Get orders</button>
-        <kitchenOrderDisplay/>
+        <kitchenOrderDisplay orders={orders?.order || []}/>
     </div>
   )
 }
