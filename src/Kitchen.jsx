@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import ArrowDatePicker from './ArrowDatePicker';
+import kitchenOrderDisplay from './KitchenOrderDisplay'
 const Kitchen = () => {
 
     const formatDate = (date) => {
@@ -27,6 +28,7 @@ const Kitchen = () => {
         {/* <input type='text' placeholder='enter the email to find the orders' onChange={(e)=>setCheckEmail(e.target.value)}></input> */}
         <ArrowDatePicker value={dateA} onChange={setDateA} />
         <button onClick={handleGetOrder}>Get orders</button>
+        <kitchenOrderDisplay/>
     </div>
   )
 }
